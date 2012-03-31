@@ -1,0 +1,29 @@
+K 25
+svn:wc:ra_dav:version-url
+V 45
+/websites/!svn/ver/295/cute_captcha/trunk/lib
+END
+application_helper.rb
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/websites/!svn/ver/295/cute_captcha/trunk/lib/application_helper.rb
+END
+cute_captcha.rb
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/websites/!svn/ver/295/cute_captcha/trunk/lib/cute_captcha.rb
+END
+application_controller.rb
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/websites/!svn/ver/295/cute_captcha/trunk/lib/application_controller.rb
+END
+engine_cc.rb
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/websites/!svn/ver/295/cute_captcha/trunk/lib/engine_cc.rb
+END
