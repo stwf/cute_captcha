@@ -9,7 +9,15 @@ class CuteCaptchaItem < ActiveRecord::Base
 
   has_attached_file :avatar, :styles => { :medium => "300x300>", :thumb => "100x100>" }
 
-  scope :random_unlike, lambda { |*args| {:order => "RAND()", :limit => (args.first || 1), :conditions => ["created_at < ? AND im_type != ?", Time.now.utc, args[1]] }}
-  scope :a_random_animal, lambda { |*args| {:order => "RAND()", :limit => (1), :conditions => ["created_at < ? AND im_type != ?", Time.now.utc, "OTHER"] }}
+
+
+  def self.random_unlike( a_cnt, an_ty )
+  	all(  :order => "RAND()", :limit => (a_cnt || 1),
+  			:conditions => ["created_at < ? AND im_type != ?", Time.now.utc, an_ty] )
+  end
+
+  def self.a_random_animal
+  	random_unlike( 1, "OTHER" )
+  end
 
 end
