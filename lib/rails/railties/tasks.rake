@@ -34,7 +34,7 @@ namespace :cute_captcha do
             copy_file file_path, new_path
 
             my_item = CuteCaptchaItem.create( :im_type => item_type, :fnd_path => new_path )
-            my_item.avatar = File.open(file_path)
+            my_item.avatar = File.open(new_path)
             my_item.save!
           end
         end
