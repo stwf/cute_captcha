@@ -5,7 +5,7 @@ module CuteCaptchaController
     @usr_message = ""
     if ( @right_image )
       if ( @capcha_error.nil? || ( @capcha_error == 0 ) )
-        @usr_message = "Prove you are human! Find the %s" % [@right_image.im_type]
+        @usr_message = "Prove you are human!Find the %s" % [@right_image.im_type]
         @usr_state = "signupYelp"
       elsif ( @capcha_error == 1 )
         @usr_state = "signupYelpRed"

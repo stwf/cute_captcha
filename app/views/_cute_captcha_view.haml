@@ -12,7 +12,9 @@
         %li
           %a.hit_link
             .span2
-              .radio
-                = radio_button_tag( "cucapcha_choice", an_image.id, false )
-              .cc_thumb{:style=>'margin-left:15px;float:left;'}
-                = image_tag an_image.avatar.url(:thumb), {:class => 'thumbnail', :style=>'vertical-align:midddle'}
+              .rights
+                .cc_thumb
+                  = image_tag an_image.avatar.url(:thumb), {:class => 'thumbnail', :style=>'vertical-align:midddle'}
+              .rights
+                .radio
+                  = radio_button_tag( "cucapcha_choice", an_image.id, false )
