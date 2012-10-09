@@ -13,7 +13,7 @@ module CuteCaptcha
     
     # Load rake tasks
     rake_tasks do
-      load File.join(File.dirname(__FILE__), 'rails/railties/tasks.rake')
+      load File.join(File.dirname(__FILE__), 'rails/railties/tasks.rb')
     end
     
     # Check the gem config

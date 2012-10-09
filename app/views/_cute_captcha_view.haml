@@ -1,3 +1,4 @@
+- @capcha_error ||= 0
 .loginItem
   %div{:class => ( @capcha_error < 1 ) ? 'alert-message warning message_width' : 'message_width alert-message error' }
     %h3.centered
@@ -7,14 +8,13 @@
   - if ( @right_image )
     = hidden_field_tag( :right_one, @right_image.im_type )
     = hidden_field_tag( :try_count, @capcha_error )
-    %ul.thumbnails{:style=>'margin-left:32px;'}
+    %ul.thumbnails{:style=>'margin-left:12px;'}
       - for an_image in @images_list
         %li{:style=>'margin-right:16px;'}
           %a.hit_link
-            .span2
-              .lefts
-                .radio
-                  = radio_button_tag( "cucapcha_choice", an_image.id, false )
-              .rights
-                .cc_thumb
-                  = image_tag an_image.avatar.url(:thumb), {:class => 'thumbnail', :style=>'vertical-align:midddle;width:92px;'}
+            .lefts
+              .radio
+                = radio_button_tag( "cucapcha_choice", an_image.id, false )
+            .rights
+              .cc_thumb
+                = image_tag an_image.avatar.url(:thumb), {:class => 'thumbnail', :style=>'vertical-align:midddle;width:92px;'}

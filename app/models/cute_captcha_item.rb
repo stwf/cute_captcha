@@ -1,3 +1,5 @@
+require 'active_support'
+
 class CuteCaptchaItem < ActiveRecord::Base
   attr_accessible       :avatar
   attr_accessible       :avatar_file_name
@@ -7,7 +9,14 @@ class CuteCaptchaItem < ActiveRecord::Base
   attr_accessible       :im_type
 
 
-  has_attached_file :avatar, :styles => { :original => "300x300>", :thumb => "100x100#" }
+  has_attached_file :avatar,
+    :dependent => :destroy,
+    :hash_secret => "THisIsAlongSecretString",
+    :styles => { :original => "300x300#", :thumb => "100x100#" },
+    :path => "public/images/:class/:attachment/:id_partition/:basename_:style.:extension",
+    :url => "/images/:class/:attachment/:id_partition/:basename_:style.:extension"
+    
+  before_create :randomize_file_name
 
 
 
@@ -19,5 +28,12 @@ class CuteCaptchaItem < ActiveRecord::Base
   def self.a_random_animal
   	random_unlike( 1, "OTHER" )
   end
+
+  private
+
+    def randomize_file_name
+      extension = File.extname(avatar_file_name).downcase
+      self.avatar.instance_write(:file_name, "#{SecureRandom.hex}#{extension}")
+    end
 
 end
