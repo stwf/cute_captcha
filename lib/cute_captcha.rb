@@ -1,7 +1,17 @@
+require "cute_captcha/version"
+require "active_support/dependencies"
+
 module CuteCaptcha
-  require 'engine' if defined?(Rails) && Rails::VERSION::MAJOR == 3
-  require 'application_controller'
+	  mattr_accessor :app_root
+
+  def self.setup
+      yield self
+  end
 
   class CuteCaptchaError < StandardError
   end
 end
+
+
+require 'cute_captcha/engine' if defined?(Rails)
+require 'cute_captcha/railtie' if defined?(Rails)
