@@ -2,7 +2,6 @@ module CuteCaptcha
   module CuteCaptchaController
     
     def setup_status
-      puts( "entering status")
       @usr_message = ""
       if ( @right_image )
         if ( @capcha_error.nil? || ( @capcha_error == 0 ) )
@@ -15,10 +14,8 @@ module CuteCaptcha
           @usr_state = "signupYelpRed"
           @usr_message = "You failed the test %s times, ROBOT! Find the %s if you can!" % [@capcha_error, @right_image.im_type]
         end
-      else
-        puts( "exitin no image status")
-        
-        @usr_message = "No cute captchas available, try seeding the databse"
+      else        
+        @usr_message = "No cute captchas available, try seeding the database"
       end
 
       if ( @password_error == 0 )
@@ -44,8 +41,6 @@ module CuteCaptcha
 
         @right_image = @images_list[0]
         @images_list.shuffle!
-
-        Rails.logger.debug( @images_list )
       end
     
     end
