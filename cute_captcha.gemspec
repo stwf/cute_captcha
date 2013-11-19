@@ -7,17 +7,7 @@ Gem::Specification.new do |s|
   s.authors = ["Steven Fuchs"]
   s.date = %q{2011-10-21}
   s.email = %q{steve@steveweb.com}
-  s.files = [
-    "app/controllers/cute_captcha_controller.rb",
-    "app/views/_cute_captcha_view.haml",
-    "config/routes.rb",
-    "lib/application_controller.rb",
-    "lib/application_helper.rb",
-    "lib/cute_captcha.rb",
-    "lib/cute_captcha/rails_configuration.rb",
-    "lib/engine.rb",
-    "lib/rails/railties/tasks.rb"
-  ]
+  s.files = Dir.glob("{lib,spec}/**/*")
   s.require_paths = ["lib"]
   s.rubygems_version = %q{1.6.2}
   s.summary = %q{Description of your gem}
